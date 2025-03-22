@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Accesibility Quiz">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Accessibility Quiz</title>
+</head>
+
+<body>
+    <header>
+        <img id="logo" src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg" alt="freeCodeCamp">
+        <h1>HTML/CSS Quiz</h1>
+        <nav>
+            <ul>
+                <li><a href="#student-info">INFO</li></a>
+                <li><a href="#html-questions">HTML</li></a>
+                <li><a href="#css-questions">CSS</li></a>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form action="https://freecodecamp.org/practice-project/accessibility-quiz" method="post">
+            <!--Para aumentar la accesibilidad de la página, el atributo role puede ser usado para indicar el propósito detrás de un elemento en la página para las tecnologías de asistencia. El atributo role es una parte de la Iniciativa de Accesibilidad Web (WAI, por sus siglas en inglés), y acepta valores predefinidos.-->
+            <section role="region" aria-labelledby="student-info">
+                <h2 id="student-info">Student Info</h2>
+                <div class="info">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+
+                <div class="info">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+
+                <div class="info">
+                    <label for="birth-date">Date of Birth:</label>
+                    <input type="date" id="birth-date" name="birth-date" placeholder="Date of Birth" required>
+                </div>
+            </section>
+
+            <section role="region" aria-labelledby="html-questions">
+                <h2 id="html-questions">HTML</h2>
+                <div class="question-block">
+                    <h3>1 <span class="sr-only">Question</span></h3>
+                    <fieldset class="question" name="html-first-question">
+                        <legend>The legend element represents a caption for the content of its parent fieldset element
+                        </legend>
+                        <ul class="answers-list">
+                            <li>
+                                <label for="q1-a1">
+                                    <input type="radio" id="q1-a1" name="q1" value="true"> True
+                                </label>
+                            </li>
+                            <li>
+                                <label for="q1-a2">
+                                    <input type="radio" id="q1-a2" name="q1" value="false"> False
+                                </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </div>
+                <div class="question-block">
+                    <h3>2 <span class="sr-only">Question</span></h3>
+                    <fieldset class="question" name="html-second-question">
+                        <legend>A label element nesting an input element is required to have a
+                            for attribute with the same value as the input's id</legend>
+                        <ul class="answers-list">
+                            <li>
+                                <label for="q2-a1">
+                                    <input type="radio" id="q2-a1" name="q2" value="true"> True
+                                </label>
+                            </li>
+                            <li>
+                                <label for="q2-a2">
+                                    <input type="radio" id="q2-a2" name="q2" value="false"> False
+                                </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </div>
+            </section>
+
+            <section role="region" aria-labelledby="css-questions">
+                <h2 id="css-questions">CSS</h2>
+                <div class="formrow">
+                    <div class="question-block">
+                        <label for="selector">Can the CSS margin property accept negative values?</label>
+                    </div>
+                    <div class="answer">
+                        <select name="selector" id="selector" required>
+                            <option value="" disabled>Select an option</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="question-block">
+                        <label for="css-textarea">Do you have any questions:</label>
+                    </div>
+                    <div class="answer">
+                        <textarea id="css-textarea" name="css-questions" rows="5" cols="24"></textarea>
+                    </div>
+                </div>
+            </section>
+            <!--Cada rol region requiere una etiqueta que ayuda a los usuarios de lectores de pantalla a entender el propósito de la región. Un método para agregar una etiqueta es agregar un elemento de encabezado dentro de la región y luego referenciarlo con el atributo aria-labelledby.-->
+            <input type="submit" value="Send">
+        </form>
+    </main>
+    <footer>
+        <address> <!--Las etiquetas br permitirán que cada parte de la dirección esté en su propia línea y son útiles para presentar correctamente los elementos address.-->
+            <a href="https://freecodecamp.org">freeCodeCamp</a><br />
+            San Francisco<br />
+            California<br />
+            USA
+        </address>
+    </footer>
+</body>
+
+</html>
